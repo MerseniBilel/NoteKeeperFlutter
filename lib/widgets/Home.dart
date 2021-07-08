@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:notekeeper/components/OneNote.dart';
+import 'package:notekeeper/widgets/AddNote.dart';
 import '../globals.dart';
 import 'dart:math';
 
@@ -32,13 +33,18 @@ class _HomeState extends State<Home> {
       floatingActionButton: FloatingActionButton(
         backgroundColor: Theme.of(context).primaryColor,
         child: Icon(Icons.add, size: 30.0),
-        onPressed: () => print(_randomColorNumber()),
+        onPressed: () => Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (_) => AddNote(),
+          ),
+        ),
         elevation: 15,
       ),
       floatingActionButtonLocation:
           FloatingActionButtonLocation.miniCenterFloat,
       body: Padding(
-        padding: const EdgeInsets.only(left: 20, right: 20, top: 30),
+        padding: EdgeInsets.only(left: 20, right: 20, top: 30),
         child: SafeArea(
             child: Column(
           children: [
@@ -54,11 +60,11 @@ class _HomeState extends State<Home> {
                   ),
                 ),
                 Container(
-                  height: 40,
-                  width: 40,
+                  height: 50,
+                  width: 50,
                   decoration: BoxDecoration(
                     color: boxdecColor,
-                    borderRadius: BorderRadius.circular(8.0),
+                    borderRadius: BorderRadius.circular(16.0),
                   ),
                   child: Icon(
                     Icons.search,
